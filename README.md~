@@ -13,7 +13,7 @@ project addfile mix_column.sv
 project addfile step_round.sv
 project addfile step_round10.sv
 project addfile aes_encr.sv
-project addfile tb_aes_encr.sv
+project addfile tb_encr.sv
 
 vlog key_expand.sv add_round_key.sv aes_s_table.sv sub_bytes.sv shift_rows.sv mix_column.sv step_round.sv step_round10.sv aes_encr.sv tb_encr.sv
 
