@@ -25,7 +25,10 @@ aes_decr inst_aes_decr
 );
 
 initial begin
-    #3 ip_data = 128'h5D_6F_56_A3_34_37_9D_CD_02_16_0A_24_B9_8E_A2_2D; ; ip_key = 128'hFE_65_78_97_FF_EA_56_76_45_AE_DE_CD_56_89_12_67;
+    //#3 ip_data = 128'h5D_6F_56_A3_34_37_9D_CD_02_16_0A_24_B9_8E_A2_2D; ; ip_key = 128'hFE_65_78_97_FF_EA_56_76_45_AE_DE_CD_56_89_12_67;
+    #3 ip_data = 128'h90_F4_2A_00_17_49_E5_12_F4_D9_48_F8_70_DA_50_0E; ; ip_key = 128'hFE_65_79_7F_FE_A5_67_64_5A_ED_EC_D5_68_91_26_07;
+    #10 ip_data = 128'h71f1fb726c8f65a86fc5323d0480f79e; ip_key = 128'hAA_BB_78_17_FF_EA_C6_76_E5_AE_DE_AD_B6_89_19_8F;
+    //#10 ip_data = 128'hDF_EE_56_56_78_24_ED_DC_BC_65_77_B7_FF_EA_06_8A; ip_key = 128'hAA_BB_78_1E_FF_EA_C6_36_E5_3E_9E_A0_B6_89_19_8F;
 
 //    #3 ip_data = 128'hAE_FE_D6_75_89_AF_ED_FC_AE_65_78_77_FF_EA_86_76; ip_key = 128'hFE_65_78_97_FF_EA_56_76_45_AE_DE_CD_56_89_12_67;
     //#10 ip_data = 128'h45_AE_DE_CD_56_89_12_67_AE_FE_D6_75_89_AF_ED_FC; ip_key =128'hAE_65_78_77_FF_EA_86_76_AE_FE_D6_75_89_AF_ED_FC ;

@@ -24,6 +24,18 @@ bit [DATA_WIDTH-1:0] round9_data_out [0:3][0:3];
 bit [DATA_WIDTH-1:0] round10_data_out [0:3][0:3];
 
 
+bit [127:0] round_1_key_reg1,  round_1_key_reg2;
+bit [127:0] round_2_key_reg1,  round_2_key_reg2,  round_2_key_reg3,  round_2_key_reg4;
+bit [127:0] round_3_key_reg1,  round_3_key_reg2,  round_3_key_reg3,  round_3_key_reg4,   round_3_key_reg5,  round_3_key_reg6;
+bit [127:0] round_4_key_reg1,  round_4_key_reg2,  round_4_key_reg3,  round_4_key_reg4,   round_4_key_reg5,  round_4_key_reg6,  round_4_key_reg7,  round_4_key_reg8;
+bit [127:0] round_5_key_reg1,  round_5_key_reg2,  round_5_key_reg3,  round_5_key_reg4,   round_5_key_reg5,  round_5_key_reg6,  round_5_key_reg7,  round_5_key_reg8,  round_5_key_reg9,  round_5_key_reg10;
+bit [127:0] round_6_key_reg1,  round_6_key_reg2,  round_6_key_reg3,  round_6_key_reg4,   round_6_key_reg5,  round_6_key_reg6,  round_6_key_reg7,  round_6_key_reg8,  round_6_key_reg9,  round_6_key_reg10,  round_6_key_reg11,  round_6_key_reg12;
+bit [127:0] round_7_key_reg1,  round_7_key_reg2,  round_7_key_reg3,  round_7_key_reg4,   round_7_key_reg5,  round_7_key_reg6,  round_7_key_reg7,  round_7_key_reg8,  round_7_key_reg9,  round_7_key_reg10,  round_7_key_reg11,  round_7_key_reg12,  round_7_key_reg13,  round_7_key_reg14;
+bit [127:0] round_8_key_reg1,  round_8_key_reg2,  round_8_key_reg3,  round_8_key_reg4,   round_8_key_reg5,  round_8_key_reg6,  round_8_key_reg7,  round_8_key_reg8,  round_8_key_reg9,  round_8_key_reg10,  round_8_key_reg11,  round_8_key_reg12,  round_8_key_reg13,  round_8_key_reg14,  round_8_key_reg15,  round_8_key_reg16;
+bit [127:0] round_9_key_reg1,  round_9_key_reg2,  round_9_key_reg3,  round_9_key_reg4,   round_9_key_reg5,  round_9_key_reg6,  round_9_key_reg7,  round_9_key_reg8,  round_9_key_reg9,  round_9_key_reg10,  round_9_key_reg11,  round_9_key_reg12,  round_9_key_reg13,  round_9_key_reg14,  round_9_key_reg15,  round_9_key_reg16,  round_9_key_reg17,  round_9_key_reg18;
+bit [127:0] round_10_key_reg1,  round_10_key_reg2,  round_10_key_reg3,  round_10_key_reg4,   round_10_key_reg5,  round_10_key_reg6,  round_10_key_reg7,  round_10_key_reg8,  round_10_key_reg9,  round_10_key_reg10,  round_10_key_reg11,  round_10_key_reg12,  round_10_key_reg13,  round_10_key_reg14,  round_10_key_reg15,  round_10_key_reg16,  round_10_key_reg17,  round_10_key_reg18,  round_10_key_reg19,  round_10_key_reg20;
+
+
 bit [31:0] temp_encr_data0, temp_encr_data1, temp_encr_data2, temp_encr_data3; 
 
 
@@ -54,42 +66,42 @@ step_round inst_round1
 (
     .clk(clk),
     .ip_data(init_data_out),
-    .ip_key(expanded_key_matrix[1]),
+    .ip_key(round_1_key_reg2),
     .round_data_out(round1_data_out)
 );
 step_round inst_round2
 (
     .clk(clk),
     .ip_data(round1_data_out),
-    .ip_key(expanded_key_matrix[2]),
+    .ip_key(round_2_key_reg4),
     .round_data_out(round2_data_out)
 );
 step_round inst_round3
 (
     .clk(clk),
     .ip_data(round2_data_out),
-    .ip_key(expanded_key_matrix[3]),
+    .ip_key(round_3_key_reg6),
     .round_data_out(round3_data_out)
 );
 step_round inst_round4
 (
     .clk(clk),
     .ip_data(round3_data_out),
-    .ip_key(expanded_key_matrix[4]),
+    .ip_key(round_4_key_reg8),
     .round_data_out(round4_data_out)
 );
 step_round inst_round5
 (
     .clk(clk),
     .ip_data(round4_data_out),
-    .ip_key(expanded_key_matrix[5]),
+    .ip_key(round_5_key_reg10),
     .round_data_out(round5_data_out)
 );
 step_round inst_round6
 (
     .clk(clk),
     .ip_data(round5_data_out),
-    .ip_key(expanded_key_matrix[6]),
+    .ip_key(round_6_key_reg12),
     .round_data_out(round6_data_out)
 );
 
@@ -97,57 +109,286 @@ step_round inst_round7
 (
     .clk(clk),
     .ip_data(round6_data_out),
-    .ip_key(expanded_key_matrix[7]),
+    .ip_key(round_7_key_reg14),
     .round_data_out(round7_data_out)
 );
 step_round inst_round8
 (
     .clk(clk),
     .ip_data(round7_data_out),
-    .ip_key(expanded_key_matrix[8]),
+    .ip_key(round_8_key_reg16),
     .round_data_out(round8_data_out)
 );
 step_round inst_round9
 (
     .clk(clk),
     .ip_data(round8_data_out),
-    .ip_key(expanded_key_matrix[9]),
+    .ip_key(round_9_key_reg18),
     .round_data_out(round9_data_out)
 );
 step_round10 inst_round10
 (
     .clk(clk),
     .ip_data(round9_data_out),
-    .ip_key(expanded_key_matrix[10]),
+    .ip_key(round_10_key_reg20),
     .round_data_out(round10_data_out)
 );
 
 
 
 
-////creating input data 4x4 matrix
-//
-//assign ip_data_arr[0] = {ip_data[7:0], ip_data[39:32], ip_data[71:64], ip_data[103:96]};
-//assign ip_data_arr[1] = {ip_data[15:8],ip_data[47:40],ip_data[79:72],ip_data[111:104]};
-//assign ip_data_arr[2] = {ip_data[23:16], ip_data[55:48],ip_data[87:80],ip_data[119:112]};
-//assign ip_data_arr[3] = {ip_data[31:24], ip_data[63:56],ip_data[95:88],ip_data[127:120]};
+always@(posedge clk)
+begin
+    if(rst)
+    begin
+        round_1_key_reg1<='b0;
+        round_1_key_reg2<='b0;
+        round_2_key_reg1<='b0;
+        round_2_key_reg2<='b0;
+        round_2_key_reg3<='b0;
+        round_2_key_reg4<='b0;
+        round_3_key_reg1<='b0;
+        round_3_key_reg2<='b0;
+        round_3_key_reg3<='b0;
+        round_3_key_reg4<='b0;
+        round_3_key_reg5<='b0;
+        round_3_key_reg6<='b0;
+        round_4_key_reg1<='b0;
+        round_4_key_reg2<='b0;
+        round_4_key_reg3<='b0;
+        round_4_key_reg4<='b0;
+        round_4_key_reg5<='b0;
+        round_4_key_reg6<='b0;
+        round_4_key_reg7<='b0;
+        round_4_key_reg8<='b0;
+        round_5_key_reg1<='b0;
+        round_5_key_reg2<='b0;
+        round_5_key_reg3<='b0;
+        round_5_key_reg4<='b0;
+        round_5_key_reg5<='b0;
+        round_5_key_reg6<='b0;
+        round_5_key_reg7<='b0;
+        round_5_key_reg8<='b0;
+        round_5_key_reg9<='b0;
+        round_5_key_reg10<='b0;
+        round_6_key_reg1<='b0;
+        round_6_key_reg2<='b0;
+        round_6_key_reg3<='b0;
+        round_6_key_reg4<='b0;
+        round_6_key_reg5<='b0;
+        round_6_key_reg6<='b0;
+        round_6_key_reg7<='b0;
+        round_6_key_reg8<='b0;
+        round_6_key_reg9<='b0;
+        round_6_key_reg10<='b0;
+        round_6_key_reg11<='b0;
+        round_6_key_reg12<='b0;
+        round_7_key_reg1<='b0;
+        round_7_key_reg2<='b0;
+        round_7_key_reg3<='b0;
+        round_7_key_reg4<='b0;
+        round_7_key_reg5<='b0;
+        round_7_key_reg6<='b0;
+        round_7_key_reg7<='b0;
+        round_7_key_reg8<='b0;
+        round_7_key_reg9<='b0;
+        round_7_key_reg10<='b0;
+        round_7_key_reg11<='b0;
+        round_7_key_reg12<='b0;
+        round_7_key_reg13<='b0;
+        round_7_key_reg14<='b0;
+        round_8_key_reg1<='b0;
+        round_8_key_reg2<='b0;
+        round_8_key_reg3<='b0;
+        round_8_key_reg4<='b0;
+        round_8_key_reg5<='b0;
+        round_8_key_reg6<='b0;
+        round_8_key_reg7<='b0;
+        round_8_key_reg8<='b0;
+        round_8_key_reg9<='b0;
+        round_8_key_reg10<='b0;
+        round_8_key_reg11<='b0;
+        round_8_key_reg12<='b0;
+        round_8_key_reg13<='b0;
+        round_8_key_reg14<='b0;
+        round_8_key_reg15<='b0;
+        round_8_key_reg16<='b0;
+        round_9_key_reg1<='b0;
+        round_9_key_reg2<='b0;
+        round_9_key_reg3<='b0;
+        round_9_key_reg4<='b0;
+        round_9_key_reg5<='b0;
+        round_9_key_reg6<='b0;
+        round_9_key_reg7<='b0;
+        round_9_key_reg8<='b0;
+        round_9_key_reg9<='b0;
+        round_9_key_reg10<='b0;
+        round_9_key_reg11<='b0;
+        round_9_key_reg12<='b0;
+        round_9_key_reg13<='b0;
+        round_9_key_reg14<='b0;
+        round_9_key_reg15<='b0;
+        round_9_key_reg16<='b0;
+        round_9_key_reg17<='b0;
+        round_9_key_reg18<='b0;
+        round_10_key_reg1<='b0;
+        round_10_key_reg2<='b0;
+        round_10_key_reg3<='b0;
+        round_10_key_reg4<='b0;
+        round_10_key_reg5<='b0;
+        round_10_key_reg6<='b0;
+        round_10_key_reg7<='b0;
+        round_10_key_reg8<='b0;
+        round_10_key_reg9<='b0;
+        round_10_key_reg10<='b0;
+        round_10_key_reg11<='b0;
+        round_10_key_reg12<='b0;
+        round_10_key_reg13<='b0;
+        round_10_key_reg14<='b0;
+        round_10_key_reg15<='b0;
+        round_10_key_reg16<='b0;
+        round_10_key_reg17<='b0;
+        round_10_key_reg18<='b0;
+        round_10_key_reg19<='b0;
+        round_10_key_reg20<='b0;
+    end
+    else
+    begin
+        //Round 1
+        round_1_key_reg1 <= expanded_key_matrix[1];
+        round_1_key_reg2 <= round_1_key_reg1; 
 
-//Only to display input matrix
-//bit [127:0] ip_data_temp;
-//initial begin
-//    ip_data_temp = 128'hFABCDEBFAEBDABFEF897AB7583957432; 
-//    $display("ip_data_temp=%h", ip_data_temp);
-//
-//    ip_data_arr[0] = {ip_data_temp[7:0], ip_data_temp[39:32], ip_data_temp[71:64], ip_data_temp[103:96]};
-//    ip_data_arr[1] = {ip_data_temp[15:8],ip_data_temp[47:40],ip_data_temp[79:72],ip_data_temp[111:104]};
-//    ip_data_arr[2] = {ip_data_temp[23:16], ip_data_temp[55:48],ip_data_temp[87:80],ip_data_temp[119:112]};
-//    ip_data_arr[3] = {ip_data_temp[31:24], ip_data_temp[63:56],ip_data_temp[95:88],ip_data_temp[127:120]};
-//
-//    for(int i=0; i<ROW_SIZE; i++)
-//    begin
-//        $display("ip_data_arr[%d] = %p",i, ip_data_arr[i]);
-//    end
-//end
+        //Round 2
+        round_2_key_reg1 <= expanded_key_matrix[2];
+        round_2_key_reg2 <= round_2_key_reg1; 
+        round_2_key_reg3 <= round_2_key_reg2; 
+        round_2_key_reg4 <= round_2_key_reg3; 
+
+
+        //Round 3
+        round_3_key_reg1 <= expanded_key_matrix[3];
+        round_3_key_reg2 <= round_3_key_reg1; 
+        round_3_key_reg3 <= round_3_key_reg2; 
+        round_3_key_reg4 <= round_3_key_reg3; 
+        round_3_key_reg5 <= round_3_key_reg4; 
+        round_3_key_reg6 <= round_3_key_reg5; 
+
+
+        //Round 4
+        round_4_key_reg1 <= expanded_key_matrix[4];
+        round_4_key_reg2 <= round_4_key_reg1; 
+        round_4_key_reg3 <= round_4_key_reg2; 
+        round_4_key_reg4 <= round_4_key_reg3; 
+        round_4_key_reg5 <= round_4_key_reg4; 
+        round_4_key_reg6 <= round_4_key_reg5; 
+        round_4_key_reg7 <= round_4_key_reg6; 
+        round_4_key_reg8 <= round_4_key_reg7; 
+
+        //Round 5
+        round_5_key_reg1 <= expanded_key_matrix[5];
+        round_5_key_reg2 <= round_5_key_reg1; 
+        round_5_key_reg3 <= round_5_key_reg2; 
+        round_5_key_reg4 <= round_5_key_reg3; 
+        round_5_key_reg5 <= round_5_key_reg4; 
+        round_5_key_reg6 <= round_5_key_reg5; 
+        round_5_key_reg7 <= round_5_key_reg6; 
+        round_5_key_reg8 <= round_5_key_reg7; 
+        round_5_key_reg9 <= round_5_key_reg8; 
+        round_5_key_reg10 <= round_5_key_reg9; 
+
+        //Round 6
+        round_6_key_reg1 <= expanded_key_matrix[6];
+        round_6_key_reg2 <= round_6_key_reg1; 
+        round_6_key_reg3 <= round_6_key_reg2; 
+        round_6_key_reg4 <= round_6_key_reg3; 
+        round_6_key_reg5 <= round_6_key_reg4; 
+        round_6_key_reg6 <= round_6_key_reg5; 
+        round_6_key_reg7 <= round_6_key_reg6; 
+        round_6_key_reg8 <= round_6_key_reg7; 
+        round_6_key_reg9 <= round_6_key_reg8; 
+        round_6_key_reg10 <= round_6_key_reg9; 
+        round_6_key_reg11 <= round_6_key_reg10; 
+        round_6_key_reg12 <= round_6_key_reg11; 
+
+        //Round 7
+        round_7_key_reg1 <= expanded_key_matrix[7];
+        round_7_key_reg2 <= round_7_key_reg1; 
+        round_7_key_reg3 <= round_7_key_reg2; 
+        round_7_key_reg4 <= round_7_key_reg3; 
+        round_7_key_reg5 <= round_7_key_reg4; 
+        round_7_key_reg6 <= round_7_key_reg5; 
+        round_7_key_reg7 <= round_7_key_reg6; 
+        round_7_key_reg8 <= round_7_key_reg7; 
+        round_7_key_reg9 <= round_7_key_reg8; 
+        round_7_key_reg10 <= round_7_key_reg9; 
+        round_7_key_reg11 <= round_7_key_reg10; 
+        round_7_key_reg12 <= round_7_key_reg11; 
+        round_7_key_reg13 <= round_7_key_reg12; 
+        round_7_key_reg14 <= round_7_key_reg13; 
+
+        //Round 8
+        round_8_key_reg1 <= expanded_key_matrix[8];
+        round_8_key_reg2 <= round_8_key_reg1; 
+        round_8_key_reg3 <= round_8_key_reg2; 
+        round_8_key_reg4 <= round_8_key_reg3; 
+        round_8_key_reg5 <= round_8_key_reg4; 
+        round_8_key_reg6 <= round_8_key_reg5; 
+        round_8_key_reg7 <= round_8_key_reg6; 
+        round_8_key_reg8 <= round_8_key_reg7; 
+        round_8_key_reg9 <= round_8_key_reg8; 
+        round_8_key_reg10 <= round_8_key_reg9; 
+        round_8_key_reg11 <= round_8_key_reg10; 
+        round_8_key_reg12 <= round_8_key_reg11; 
+        round_8_key_reg13 <= round_8_key_reg12; 
+        round_8_key_reg14 <= round_8_key_reg13; 
+        round_8_key_reg15 <= round_8_key_reg14; 
+        round_8_key_reg16 <= round_8_key_reg15; 
+
+        //Round 9
+        round_9_key_reg1 <= expanded_key_matrix[9];
+        round_9_key_reg2 <= round_9_key_reg1; 
+        round_9_key_reg3 <= round_9_key_reg2; 
+        round_9_key_reg4 <= round_9_key_reg3; 
+        round_9_key_reg5 <= round_9_key_reg4; 
+        round_9_key_reg6 <= round_9_key_reg5; 
+        round_9_key_reg7 <= round_9_key_reg6; 
+        round_9_key_reg8 <= round_9_key_reg7; 
+        round_9_key_reg9 <= round_9_key_reg8; 
+        round_9_key_reg10 <= round_9_key_reg9; 
+        round_9_key_reg11 <= round_9_key_reg10; 
+        round_9_key_reg12 <= round_9_key_reg11; 
+        round_9_key_reg13 <= round_9_key_reg12; 
+        round_9_key_reg14 <= round_9_key_reg13; 
+        round_9_key_reg15 <= round_9_key_reg14; 
+        round_9_key_reg16 <= round_9_key_reg15; 
+        round_9_key_reg17 <= round_9_key_reg16; 
+        round_9_key_reg18 <= round_9_key_reg17; 
+
+        //Round 10
+        round_10_key_reg1 <= expanded_key_matrix[10];
+        round_10_key_reg2 <= round_10_key_reg1; 
+        round_10_key_reg3 <= round_10_key_reg2; 
+        round_10_key_reg4 <= round_10_key_reg3; 
+        round_10_key_reg5 <= round_10_key_reg4; 
+        round_10_key_reg6 <= round_10_key_reg5; 
+        round_10_key_reg7 <= round_10_key_reg6; 
+        round_10_key_reg8 <= round_10_key_reg7; 
+        round_10_key_reg9 <= round_10_key_reg8; 
+        round_10_key_reg10 <= round_10_key_reg9; 
+        round_10_key_reg11 <= round_10_key_reg10; 
+        round_10_key_reg12 <= round_10_key_reg11; 
+        round_10_key_reg13 <= round_10_key_reg12; 
+        round_10_key_reg14 <= round_10_key_reg13; 
+        round_10_key_reg15 <= round_10_key_reg14; 
+        round_10_key_reg16 <= round_10_key_reg15; 
+        round_10_key_reg17 <= round_10_key_reg16; 
+        round_10_key_reg18 <= round_10_key_reg17; 
+        round_10_key_reg19 <= round_10_key_reg18; 
+        round_10_key_reg20 <= round_10_key_reg19; 
+
+    end
+end
+
 
 
 endmodule

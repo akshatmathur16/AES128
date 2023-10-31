@@ -20,13 +20,14 @@ sub_bytes inst_sub_bytes
 
 shift_rows inst_shift_rows
 (
-
+    .clk(clk),
     .ip_matrix(out_sub_matrix),
     .out_shift_matrix(out_shift_matrix)
 );
 
 mix_column inst_mix_column
 (
+    .clk(clk),
     .ip_data(out_shift_matrix),
     .out_data(mix_col_out_data)
 );

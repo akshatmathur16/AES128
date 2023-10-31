@@ -24,6 +24,7 @@ sub_bytes inst_sub_bytes
 shift_rows inst_shift_rows
 (
 
+    .clk(clk),
     .ip_matrix(out_sub_matrix),
     .out_shift_matrix(out_shift_matrix)
 );

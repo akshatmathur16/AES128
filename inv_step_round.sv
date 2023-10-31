@@ -43,6 +43,7 @@ add_round_key inst_add_round_key
 
 inv_mix_column inst_inv_mix_column
 (
+    .clk(clk),
     .ip_data(op_add_round_key_data),
     .out_data(mix_col_out_data)
 );

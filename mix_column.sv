@@ -1,5 +1,6 @@
 module mix_column #(parameter DATA_WIDTH=8) 
 (
+    input clk,
     input bit [DATA_WIDTH-1:0] ip_data [0:3][0:3],
     output bit [127:0] out_data
 );
@@ -35,8 +36,10 @@ mult_col m3
 
 assign out_data = {temp_op_data0, temp_op_data1, temp_op_data2, temp_op_data3};
 
-
 endmodule
+
+
+
 
 function bit [7:0] mul2;
     input [7:0] mul2_ip;

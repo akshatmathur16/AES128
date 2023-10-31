@@ -1,4 +1,4 @@
-module tb_aes_encr();
+module tb_add_round_key();
 
 
 parameter DATA_WIDTH=8;
@@ -66,6 +66,8 @@ mix_column inst_mix_column
 initial begin
 
     #3 ip_data = 128'hAE_FE_D6_75_89_AF_ED_FC_AE_65_78_77_FF_EA_86_76; ip_key = 128'hFE_65_78_97_FF_EA_56_76_45_AE_DE_CD_56_89_12_67;
+    #10 ip_data = 128'hFF_CE_C6_75_77_AF_ED_FC_BE_65_78_B7_FF_EA_06_82; ip_key = 128'hAA_BB_78_17_FF_EA_C6_76_E5_AE_DE_AD_B6_89_19_8F;
+    #10 ip_data = 128'hDF_EE_56_56_78_24_ED_DC_BC_65_77_B7_FF_EA_06_8A; ip_key = 128'hAA_BB_78_1E_FF_EA_C6_36_E5_3E_9E_A0_B6_89_19_8F;
     //#10 ip_data = 128'h45_AE_DE_CD_56_89_12_67_AE_FE_D6_75_89_AF_ED_FC; ip_key =128'hAE_65_78_77_FF_EA_86_76_AE_FE_D6_75_89_AF_ED_FC ;
 
 end

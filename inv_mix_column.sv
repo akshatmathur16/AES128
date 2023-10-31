@@ -1,5 +1,6 @@
 module inv_mix_column #(parameter DATA_WIDTH=8) 
 (
+    input clk,
     input bit [DATA_WIDTH-1:0] ip_data [0:3][0:3],
     output bit [127:0] out_data
 );
