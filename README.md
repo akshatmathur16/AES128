@@ -1,6 +1,8 @@
 # AES128
  AES Encryption and Decryption Hardware Implementation 
 
+ Updated code in pipeline_key branch
+
 AES Encryption
 
 
