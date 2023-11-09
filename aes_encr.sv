@@ -1,3 +1,6 @@
+//Author Akshat Mathur
+
+//Top module for Ecnryption block
 module aes_encr
 (
     input clk, rst,
@@ -24,6 +27,7 @@ bit [DATA_WIDTH-1:0] round9_data_out [0:3][0:3];
 bit [DATA_WIDTH-1:0] round10_data_out [0:3][0:3];
 
 
+//signals for key propagation
 bit [127:0] round_1_key_reg1,  round_1_key_reg2;
 bit [127:0] round_2_key_reg1,  round_2_key_reg2,  round_2_key_reg3,  round_2_key_reg4;
 bit [127:0] round_3_key_reg1,  round_3_key_reg2,  round_3_key_reg3,  round_3_key_reg4,   round_3_key_reg5,  round_3_key_reg6;
@@ -38,6 +42,7 @@ bit [127:0] round_10_key_reg1,  round_10_key_reg2,  round_10_key_reg3,  round_10
 
 bit [31:0] temp_encr_data0, temp_encr_data1, temp_encr_data2, temp_encr_data3; 
 
+//assigning final data from Round 10 to output
 
 assign temp_encr_data0 = {round10_data_out[0][0], round10_data_out[1][0], round10_data_out[2][0], round10_data_out[3][0]};
 assign temp_encr_data1 = {round10_data_out[0][1], round10_data_out[1][1], round10_data_out[2][1], round10_data_out[3][1]};
@@ -47,6 +52,7 @@ assign temp_encr_data3 = {round10_data_out[0][3], round10_data_out[1][3], round1
 assign encr_data_out = {temp_encr_data0, temp_encr_data1, temp_encr_data2, temp_encr_data3};
 
 
+//All keys being generated at the biginning of cycle.
 key_expand inst_key_expand
 (
     .key(ip_key),
@@ -136,6 +142,7 @@ step_round10 inst_round10
 
 
 
+//Key propagation logic 
 
 always@(posedge clk)
 begin

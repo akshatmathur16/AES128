@@ -13,7 +13,6 @@ bit [127:0] ip_add_round_key_data;
 bit [DATA_WIDTH-1:0]  op_add_round_key_data [0:3][0:3];
 bit [127:0] mix_col_out_data;
 
-//converting column to vector
 assign temp_ip_data0 = {out_sub_matrix[0][0], out_sub_matrix[1][0], out_sub_matrix[2][0], out_sub_matrix[3][0]};
 assign temp_ip_data1 = {out_sub_matrix[0][1], out_sub_matrix[1][1], out_sub_matrix[2][1], out_sub_matrix[3][1]};
 assign temp_ip_data2 = {out_sub_matrix[0][2], out_sub_matrix[1][2], out_sub_matrix[2][2], out_sub_matrix[3][2]};
@@ -48,8 +47,6 @@ inv_mix_column inst_inv_mix_column
     .ip_data(op_add_round_key_data),
     .out_data(mix_col_out_data)
 );
-
-//converting vector to matrix
 
 genvar i,j;
 

@@ -34,7 +34,6 @@ mult_col m3
     .data_out(temp_op_data3)
 );
 
-//concatinating data to make 128 bit vector
 assign out_data = {temp_op_data0, temp_op_data1, temp_op_data2, temp_op_data3};
 
 endmodule

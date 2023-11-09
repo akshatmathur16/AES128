@@ -1,5 +1,3 @@
-
-// as per protocol round 10 is different from other rounds
 module step_round10 #(parameter DATA_WIDTH=8)
 (
     input clk,

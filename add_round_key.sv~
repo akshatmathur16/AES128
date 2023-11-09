@@ -11,7 +11,7 @@ bit [127:0] out_temp;
 assign out_temp = ip_data ^ ip_key;   // 127^ 127
 
 
-//generating vector data to matrix
+
 genvar i,j;
 
 generate

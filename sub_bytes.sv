@@ -6,6 +6,7 @@ module sub_bytes #(parameter DATA_WIDTH=8)
 
 genvar i,j;
 
+//instantitating aes s table using nested gen block
 generate
 for(i=0; i< 4; i++)
 begin

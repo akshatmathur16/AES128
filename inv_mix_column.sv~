@@ -39,8 +39,6 @@ assign out_data = {temp_op_data0, temp_op_data1, temp_op_data2, temp_op_data3};
 
 endmodule
 
-//function can multiply any number to max by 8 using shifting and take care of
-//overflow
 function bit [7:0] mult;
     input [7:0] mult_ip;
     input [2:0] mult_rot;

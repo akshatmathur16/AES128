@@ -1,6 +1,3 @@
-//Author: Akshat Mathur
-//Decryption module top
-
 module aes_decr
 (
     input clk, rst,
@@ -13,7 +10,6 @@ localparam DATA_WIDTH=8;
 localparam ROW_SIZE=4;
 localparam COL_SIZE=4;
 
-//Data temp signals
 bit [127:0] expanded_key_matrix [0:10];
 bit [DATA_WIDTH-1:0] init_data_out [0:3][0:3];
 bit [DATA_WIDTH-1:0] round1_data_out [0:3][0:3];
@@ -28,7 +24,6 @@ bit [DATA_WIDTH-1:0] round9_data_out [0:3][0:3];
 bit [DATA_WIDTH-1:0] round10_data_out [0:3][0:3];
 
 
-//key propagation signals
 bit [127:0] round_1_key_reg1,  round_1_key_reg2;
 bit [127:0] round_2_key_reg1,  round_2_key_reg2,  round_2_key_reg3,  round_2_key_reg4;
 bit [127:0] round_3_key_reg1,  round_3_key_reg2,  round_3_key_reg3,  round_3_key_reg4,   round_3_key_reg5,  round_3_key_reg6;
@@ -142,7 +137,7 @@ inv_step_round10 inst_inv_round10
     .round_data_out_reg(round10_data_out)
 );
 
-//key propagation logic
+
 always@(posedge clk)
 begin
     if(rst)
