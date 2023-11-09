@@ -1,4 +1,5 @@
-module tb_add_round_key();
+//Author Akshat Mathur
+module tb_aes_encr();
 
 
 parameter DATA_WIDTH=8;
@@ -24,44 +25,6 @@ aes_encr inst_aes_encr
     .encr_data_out(encr_data_out)
 );
 
-
-
-
-/*
-key_expand inst_key_expand
-(
-    .key(ip_key),
-    .key_out(key_out) 
-);
-
-add_round_key inst_add_round_key 
-(
-    .clk(clk),
-    .ip_data(ip_data),
-    .ip_key(key_out),
-    .out(out)
-);
-assign out_temp = out;
-
-sub_bytes inst_sub_bytes 
-(
-    .in(out_temp),
-    .out_sub_matrix(out_sub_matrix)
-);
-
-shift_rows inst_shift_rows
-(
-
-    .ip_matrix(out_sub_matrix),
-    .out_shift_matrix(out_shift_matrix)
-);
-
-mix_column inst_mix_column
-(
-    .ip_data(out_shift_matrix),
-    .out_data(mix_col_out_data)
-);
-*/
 
 initial begin
 
